@@ -6,11 +6,7 @@
 
 To get started with this app, follow the instructions below.
 
-- git clone https://github.com/chmbila202/OLX-App-On-React/tree/master
+- git clone https://github.com/anjalisoni3655/BechDe
 - open in Visual Studio Code
-- npm start
+- `npm run dev` to start the server and client simultaneously
 - start MongoDB server by typing "mongod" on cmd
-- start node server by typing "node server.js" on cmd
-- Use this app to get inspiration and to read and write code.
-
-Thank you!
