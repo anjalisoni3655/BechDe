@@ -246,6 +246,7 @@ class SingleProduct extends React.Component {
                   name="BechDe"
                   description={data !== undefined ? data[0].title : ""}
                   amount={data !== undefined ? data[0].price : ""}
+                  
                 />
               </div>
               <div id="seller">

@@ -5,7 +5,7 @@ import StripeCheckout from "react-stripe-checkout";
 import STRIPE_PUBLISHABLE from "./constants/stripe";
 import PAYMENT_SERVER_URL from "./constants/server";
 
-const CURRENCY = "USD";
+const CURRENCY = "Rs.";
 
 const fromDollarToCent = (amount) => parseInt(amount * 100);
 
@@ -39,6 +39,19 @@ const Checkout = ({ name, description, amount }) => (
     zipCode
     email
     allowRememberMe
+    image="https://png.pngtree.com/png-clipart/20190925/original/pngtree-hand-painted-flat-mobile-phone-online-shopping-png-image_4986619.jpg" // the pop-in header image (default none)
+    ComponentClass="div"
+    panelLabel="Rs." // prepended to the amount in the bottom pay button
+    locale="in"
+    // Note: Enabling either address option will give the user the ability to
+    // fill out both. Addresses are sent as a second parameter in the token callback.
+    shippingAddress
+    billingAddress={false}
+    // Note: enabling both zipCode checks and billing or shipping address will
+    // cause zipCheck to be pulled from billing address (set to shipping if none provided).
+
+    //alipay // accept Alipay (default false)
+    // bitcoin // accept Bitcoins (default false)
   />
 );
 
