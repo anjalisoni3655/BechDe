@@ -3,20 +3,21 @@ import Header from "./Header";
 import Footer from "./footer";
 import "../static/css/singleproduct.css";
 import axios from "axios";
+import Checkout from "./Checkout";
 
 var time = new Date();
 console.log(time);
 
 class SingleProduct extends React.Component {
   constructor(props) {
-      super(props);
-      this.loadScript = this.loadScript.bind(this);
-      this.displayRazorpay = this.displayRazorpay.bind(this);
+    super(props);
+    this.loadScript = this.loadScript.bind(this);
+    this.displayRazorpay = this.displayRazorpay.bind(this);
     this.state = {
       data: undefined,
     };
   }
-    
+
   loadScript(src) {
     return new Promise((resolve) => {
       const script = document.createElement("script");
@@ -56,7 +57,8 @@ class SingleProduct extends React.Component {
       currency: currency,
       name: "Soumya Corp.",
       description: "Test Transaction",
-      image: "https://png.pngtree.com/png-clipart/20200701/original/pngtree-car-seller-deal-buying-and-sell-flat-illustration-png-image_5426830.jpg",
+      image:
+        "https://png.pngtree.com/png-clipart/20200701/original/pngtree-car-seller-deal-buying-and-sell-flat-illustration-png-image_5426830.jpg",
       order_id: order_id,
       handler: async function (response) {
         const data = {
@@ -238,8 +240,13 @@ class SingleProduct extends React.Component {
                   onClick={this.displayRazorpay}
                 >
                   {" "}
-                  Pay Rs.{data !== undefined ? data[0].price : ""}
+                  Rs.{data !== undefined ? data[0].price : ""}
                 </button>
+                <Checkout
+                  name="BechDe"
+                  description={data !== undefined ? data[0].title : ""}
+                  amount={data !== undefined ? data[0].price : ""}
+                />
               </div>
               <div id="seller">
                 <p style={{ fontWeight: "bold", lineHeight: "0px" }}>
